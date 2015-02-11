@@ -11,9 +11,18 @@ public class SampEn2DMain {
 
     public static void main(String[] args) {
         String exp = args[0];
+        boolean normalizeOption = true;
+        if (args[1].equalsIgnoreCase("y")) {
+            normalizeOption = true;
+        } else if (args[1].equalsIgnoreCase("n")) {
+            normalizeOption = false;
+        } else {
+            System.out.println("(Y)es or (N)o for normalized option.");
+            return;
+        }
+
         if (exp.equals("preliminar")) {
-//            Arguments= sural30, sural720
-            Mammography.Experiments.expEntropy();
+            Mammography.Experiments.expEntropy(normalizeOption);
         } else {
             System.out.println("Please specify <preliminar> experiment");
             return;
